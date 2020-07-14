@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+group 'me.geek.tom'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://libraries.minecraft.net" }
+    jcenter()
+}
+
+dependencies {
+    // Discord connection
+    implementation('net.dv8tion:JDA:4.1.1_154') {
+        exclude module: 'opus-java' // Don't need OPUS, and it broke shading.
+    }
+
+    // Command parsing
+    implementation 'com.mojang:brigadier:1.0.17'
+
+    // Scripts
+    implementation 'org.mozilla:rhino:1.7R4'
+
+    // Config file
+    implementation 'com.electronwill.night-config:core:3.6.3'
+    implementation 'com.electronwill.night-config:toml:3.6.3'
+
+    // Storage
+    implementation 'org.xerial:sqlite-jdbc:3.32.3'
+
+    // Paginated messages
+    implementation 'com.jagrosh:jda-utilities:3.0.3'
+
+    // Github
+    implementation 'org.kohsuke:github-api:1.113'
+
+    // Logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.2'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.2'
+
+    // Utils
+    implementation 'com.google.guava:guava:29.0-jre'
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "TomTheBot",
+                "Specification-Vendor": "Tom_The_Geek",
+                "Specification-Version": "1", // We are version 1 of ourselves
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${project.version}",
+                "Implementation-Vendor" :"Tom_The_Geek",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Main-Class": "me.geek.tom.tomthebot.TomTheBot"
+        ])
+    }
+}

@@ -1,0 +1,11 @@
+# Build files
+.gradle/
+build/
+out/
+
+# Run folder if thats your thing
+run/
+
+# IDE stuff
+*.iml
+.idea/
