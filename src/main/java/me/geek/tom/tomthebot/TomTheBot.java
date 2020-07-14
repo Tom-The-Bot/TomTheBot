@@ -25,7 +25,7 @@ public class TomTheBot {
         LOGGER.info("Connecting to discord...");
         try {
             JDA jda = JDABuilder
-                    .createDefault("NjM3NTkzNDQxMTk0MzQ0NDcw.Xw2AEg.Y9dSvxbMRDMbl7AynFdipcDDsW4")
+                    .createDefault(args[0]) // That token is now invalid!
                     .addEventListeners(EVENT_WAITER, new CommandManager(commands))
                     .build();
 
