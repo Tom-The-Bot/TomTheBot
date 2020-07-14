@@ -20,7 +20,7 @@ public class GithubScripts {
     private static GitHub gitHub = null;
 
     static {
-        GitHubBuilder builder = new GitHubBuilder().withPassword("Geek202", "a30384648566c813c5bd10eb7b286aaa04f5dbdd");
+        GitHubBuilder builder = new GitHubBuilder(); // The token that was here has also been revoked lol.
         try {
             gitHub = builder.build();
         } catch (IOException e) {
